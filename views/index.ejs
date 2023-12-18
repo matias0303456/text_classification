@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/public/index.css">
+    <title>Sentiment Analysis</title>
+</head>
+
+<body>
+    <h1>Sentiment Analysis</h1>
+    <form action="/process" method="POST">
+        <input type="text" name="text" placeholder="Enter a text">
+        <button type="submit">Send</button>
+    </form>
+    <% if(result && input.length> 0){ %>
+        <div class="result">
+            <p>
+                <span class="resultField">Input:</span>
+                <%= input %>
+            </p>
+            <p>
+                <span class="resultField">Label:</span>
+                <%= result.label %>
+            </p>
+            <p>
+                <span class="resultField">Score:</span>
+                <%= result.score %>
+            </p>
+        </div>
+        <% } %>
+            <% if(result && input.length===0){ %>
+                <div class="result">
+                    <p>
+                        <%= result.label %>
+                    </p>
+                </div>
+                <% } %>
+</body>
+
+</html>
